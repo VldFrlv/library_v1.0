@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'add_book' %}">Регистрацияя новой книги</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'add_client' %}">Регистрация нового читателя</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Список читателей</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Выдача книг</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Возврат книг</a>
+            </li>
+
+        </ul>
+    </div>
+    <div>
+    <table class="sortable">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">ФИО</th>
+      <th scope="col">Дата рождения</th>
+      <th scope="col">Адрес</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for client in clients %}
+    <tr>
+      <th scope="row">{{ client.id }}</th>
+      <td>{{ client.surname }} {{ client.name }} {{ client.patronymic }}</td>
+      <td>{{ client.date_of_birth }}</td>
+      <td>{{ client.address }}</td>
+      <td>{{ client.email }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    <link href="https://tofsjonas.github.io/sortable/sortable.css" rel="stylesheet" />
+<script src="https://tofsjonas.github.io/sortable/sortable.js"></script>
+    </div>
+{% endblock %}

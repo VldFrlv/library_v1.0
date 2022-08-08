@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'add_book' %}">Регистрацияя новой книги</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'add_client' %}">Регистрация нового читателя</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'clients' %}">Список читателей</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'order' %}">Выдача книг</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Выданные книги и возврат</a>
+            </li>
+
+        </ul>
+    </div>
+    <div>
+    <table class="sortable">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Наименование</th>
+      <th scope="col">Жанр</th>
+      <th scope="col">Год выпуска</th>
+      <th scope="col">Общее количество экземпляров</th>
+      <th scope="col">Количество экземпляров, доступное для читателей</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for book in books %}
+    <tr>
+      <th scope="row">{{ book.id }}</th>
+      <td>{{ book.title_rus }}</td>
+      <td>{{ book.genre }}</td>
+      <td>{{ book.publication_date }}</td>
+      <td>{{ book.all_quantity }}</td>
+      <td>{{ book.av_quantity }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    <link href="https://tofsjonas.github.io/sortable/sortable.css" rel="stylesheet" />
+<script src="https://tofsjonas.github.io/sortable/sortable.js"></script>
+    </div>
+{% endblock %}
