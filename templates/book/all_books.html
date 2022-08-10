@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <button><a href = '{% url 'library_managment:group_books' %}'>Сгруппировать по экземплярам</a></button>
+    <table class="sortable">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Наименование</th>
+      <th scope="col">Жанр</th>
+      <th scope="col">Авторы</th>
+      <th scope="col">Год издания</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for book in books %}
+    <tr>
+      <th scope="row">{{ book.id }}</th>
+      <td><a href="{{ book.get_absolute_url }}">{{ book.title_rus }}</a></td>
+      <td>{{ book.genre }}</td>
+      <td>{{ book.authors }}</td>
+      <td>{{ book.publication_date }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    <link href="https://tofsjonas.github.io/sortable/sortable.css" rel="stylesheet" />
+<script src="https://tofsjonas.github.io/sortable/sortable.js"></script>
+    </div>
+{% endblock %}
