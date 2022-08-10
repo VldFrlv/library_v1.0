@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse, reverse_lazy
 
 
 class Book(models.Model):
@@ -30,6 +31,10 @@ class Book(models.Model):
     publication_date = models.PositiveIntegerField('Год издания')
     register_date = models.DateTimeField('Дата регистрации', auto_now_add=True)
     num_of_pages = models.PositiveIntegerField('Количество страниц')
+    comment = models.CharField('Комментарий о состоянии', max_length=255, blank=True)
+
+    def get_absolute_url(self):
+        return reverse_lazy('library_managment:book_detail', kwargs={'pk': self.pk})
 
     class Meta:
         verbose_name = 'Книга'

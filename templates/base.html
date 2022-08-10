@@ -11,16 +11,17 @@
 <body>
 <nav class="navbar bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">
+        <a class="navbar-brand" href="{% url 'library_managment:group_books' %}">
             <img src="{% static 'img/logo.png' %}" alt="" width="50" height="33" class="d-inline-block align-text-top">
             Библиотека
         </a>
         <div>
             <a>{{ request.user }}  </a>
-            <a href="{% url 'logout' %}"> Выход </a>
+            <a href="{% url 'library_managment:logout' %}"> Выход </a>
         </div>
     </div>
 </nav>
+{% include 'inc/nav_links.html' %}
 {% block content %}
 {% endblock %}
 

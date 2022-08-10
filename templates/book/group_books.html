@@ -1,27 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div>
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'add_book' %}">Регистрацияя новой книги</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'add_client' %}">Регистрация нового читателя</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'clients' %}">Список читателей</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'order' %}">Выдача книг</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Выданные книги и возврат</a>
-            </li>
-
-        </ul>
-    </div>
-    <div>
+    <button><a href = '{% url 'library_managment:all_books' %}'>Показать все</a></button>
     <table class="sortable">
   <thead>
     <tr>
