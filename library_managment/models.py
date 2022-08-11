@@ -36,3 +36,4 @@ class Order(models.Model):
                                  null=True)
     order_date = models.DateField('Дата выдачи', auto_now_add=True)
 
+

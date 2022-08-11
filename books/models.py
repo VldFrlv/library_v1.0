@@ -32,6 +32,7 @@ class Book(models.Model):
     register_date = models.DateTimeField('Дата регистрации', auto_now_add=True)
     num_of_pages = models.PositiveIntegerField('Количество страниц')
     comment = models.CharField('Комментарий о состоянии', max_length=255, blank=True)
+    in_order = models.BooleanField('В заказе', default=False)
 
     def get_absolute_url(self):
         return reverse_lazy('library_managment:book_detail', kwargs={'pk': self.pk})
