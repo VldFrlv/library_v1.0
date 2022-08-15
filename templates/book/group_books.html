@@ -7,6 +7,7 @@
     <tr>
       <th scope="col">id</th>
       <th scope="col">Наименование</th>
+      <th scope="col">Автор(ы):</th>
       <th scope="col">Жанр</th>
       <th scope="col">Год выпуска</th>
       <th scope="col">Общее количество экземпляров</th>
@@ -18,6 +19,7 @@
     <tr>
       <th scope="row">{{ book.id }}</th>
       <td>{{ book.title_rus }}</td>
+      <td>{{ book.authors }}</td>
       <td>{{ book.genre }}</td>
       <td>{{ book.publication_date }}</td>
       <td>{{ book.all_quantity }}</td>

@@ -3,28 +3,28 @@
 <div class="card" style="width: 24rem;">
 <img src="{{ book.cover_photo.url }}" class="card-img-top" alt="...">
 <div class="card-body">
-    <p>Автор(ы): {{ book.authors }}</p>
-    <p>Название: {{ book.title_rus }}</p>
+    <p><b>Автор(ы):</b> {{ book.authors }}</p>
+    <p><b>Название:</b> {{ book.title_rus }}</p>
     {% if book.title_original %}
-    <p>Название(оригинал): {{ book.title_original }}</p>
+    <p><b>Название(оригинал):</b> {{ book.title_original }}</p>
     {% endif %}
-    <p>Жанр: {{ book.genre }}</p>
-    <p>Дата публикации: {{ book.publication_date}}</p>
-    <p>Количество страниц: {{ book.num_of_pages}}</p>
-    <p>Цена: {{ book.price}}</p>
-    <p>Цена за день: {{ book.price_per_day }}</p>
+    <p><b>Жанр:</b> {{ book.genre }}</p>
+    <p><b>Дата публикации:</b>v {{ book.publication_date}}</p>
+    <p><b>Количество страниц:</b> {{ book.num_of_pages}}</p>
+    <p><b>Цена:</b> {{ book.price}}</p>
+    <p><b>Цена за день:</b> {{ book.price_per_day }}</p>
     {% if book.in_order is False %}
-    <p>Статус: На складе</p>
+    <p><b>Статус:</b> На складе</p>
         {% else %}
-        <p>Статус: У читателя</p>
+        <p><b>Статус:</b> У читателя</p>
     {% endif %}
-    <p>Дата регистрации книги: {{ book.register_date|date:"d.m.Y"  }}</p>
+    <p><b>Дата регистрации книги:</b>  {{ book.register_date|date:"d.m.Y"  }}</p>
     {% if book.comment %}
-    <p class="card-text">Комментарий к состоянию книги: {{ book.comment }}</p>
+    <p class="card-text"><b>Комментарий к состоянию книги:</b>  {{ book.comment }}</p>
     {% endif %}
   </div>
     {% if book.author_photo_1 or book.author_photo_2 or book.author_photo_3 or book.author_photo_4 %}
-        <p>Фото авторов:</p>
+        <p><b>Фото авторов:</b> </p>
     <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{{ book.author_photo_1.url }}" class="d-block w-100" width="30" alt="...">

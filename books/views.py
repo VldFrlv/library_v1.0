@@ -11,8 +11,8 @@ from books.models import Book
 
 class AddBook(CreateView, LoginRequiredMixin):
     model = Book
-    template_name = 'library_managment/add_book.html'
-    success_url = reverse_lazy('library_managment:clients')
+    template_name = 'book/add_book.html'
+    success_url = reverse_lazy('library_managment:all_books')
     fields = [
         'title_rus', 'title_original', 'genre', 'price',
         'authors', 'cover_photo', 'author_photo_1',
@@ -30,12 +30,14 @@ def group_books(request):
     return render(request, 'book/group_books.html', context)
 
 
-class AllBooksList(ListView, LoginRequiredMixin):
+class AllBooksList(LoginRequiredMixin, ListView):
     model = Book
     template_name = 'book/all_books.html'
     context_object_name = 'books'
 
-class BookDetail(DetailView, LoginRequiredMixin):
+
+
+class BookDetail(LoginRequiredMixin, DetailView):
     model = Book
     template_name = 'book/view_book.html'
     context_object_name = 'book'

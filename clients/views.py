@@ -8,14 +8,14 @@ from .models import Client
 
 
 
-class CreateClient(CreateView, LoginRequiredMixin):
+class CreateClient(LoginRequiredMixin, CreateView):
     model = Client
     form_class = ClientCreationForm
     template_name = 'client/client_create.html'
     success_url = reverse_lazy('clients')
 
 
-class Clients(ListView, LoginRequiredMixin):
+class Clients(LoginRequiredMixin, ListView):
     model = Client
     template_name = 'client/clients_list.html'
     context_object_name = 'clients'
