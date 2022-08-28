@@ -5,7 +5,9 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 
 from books.models import Book
+from clients.models import Client
 from library_managment.forms import OrderForm
+from .utils import *
 
 
 class Login(LoginView):
@@ -22,12 +24,9 @@ def logout(request):
     return redirect('library_managment:login')
 
 
-# def change_book_status(save_form):
-#     if save_form:
-#         book_id = save_form.pk
-#         ord_book = Book.objects.get(pk=book_id)
-#         ord_book.in_order = True
-#         ord_book.save()
+@login_required
+def terms_of_use(request):
+    return render(request, 'library_managment/terms_of_use.html')
 
 
 @login_required
@@ -36,7 +35,9 @@ def order(request):
         form = OrderForm(request.POST)
         if form.is_valid():
             book = form.save(commit=False)
-            print(book.book)
+            for book in (book.book1, book.book2, book.book3, book.book4, book.book5):
+                if book:
+                    change_book_status(book)
             form.save()
             return redirect('library_managment:all_books')
     else:

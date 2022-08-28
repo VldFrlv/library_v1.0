@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h4>Подписание пользовательтского соглашения:</h4>
+    <br>
+    <h6>Выберите читателя:</h6>
+    <form method="post">
+    {% csrf_token %}
+    <div style="width:520px; auto;margin-top:30px;">
+        <select class="livesearch" style="width:400px;" name="clients">
+            <option name="client"></option>
+        </select>
+    <button>Выбрать</button>
+    </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+    <script type="text/javascript">
+        $(".livesearch").chosen();
+    </script>
+{% endblock %}

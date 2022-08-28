@@ -33,11 +33,6 @@ class Book(models.Model):
     num_of_pages = models.PositiveIntegerField('Количество страниц')
     comment = models.CharField('Комментарий о состоянии', max_length=255, blank=True)
     in_order = models.BooleanField('В заказе', default=False)
-    slug = models.SlugField(unique=False)
-
-    def save(self, *args, **kwargs):
-        self.slug = f'{self.title_rus}{self.num_of_pages}{self.genre}'
-        super(Book, self).save(*args, **kwargs)
 
 
     def get_absolute_url(self):

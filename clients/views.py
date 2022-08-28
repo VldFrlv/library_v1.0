@@ -7,7 +7,6 @@ from .forms import ClientCreationForm
 from .models import Client
 
 
-
 class CreateClient(LoginRequiredMixin, CreateView):
     model = Client
     form_class = ClientCreationForm
@@ -19,5 +18,3 @@ class Clients(LoginRequiredMixin, ListView):
     model = Client
     template_name = 'client/clients_list.html'
     context_object_name = 'clients'
-
-
